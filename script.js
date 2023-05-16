@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  /*
+  
+  Original way i wrote this code.
+
   $("#pic1").click(function () {
     $("#pic1")
       .fadeOut(1000, function () {
@@ -24,5 +28,16 @@ $(document).ready(function () {
       })
       .fadeIn(1000);
     return false;
+  }); */
+  // New way with help of Levent.
+
+  $("img").click(function () {
+    $(this)
+      .fadeOut(1000, function () {
+        var src = $(this).attr("src");
+        $(this).attr("src", $(this).attr("alt-pic"));
+        $(this).attr("alt-pic", src);
+      })
+      .fadeIn(1000);
   });
 });
